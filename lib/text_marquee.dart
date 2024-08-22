@@ -59,6 +59,14 @@ class _TextMarqueeState extends State<TextMarquee> {
   bool _isScrolling = false;
 
   @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _startAnimating();
+    });
+  }
+
+  @override
   void didUpdateWidget(TextMarquee oldWidget) {
     // The commands inside this callback are executed after the build function.
     WidgetsBinding.instance.addPostFrameCallback((_) {
